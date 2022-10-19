@@ -1,5 +1,5 @@
 
-const baseUrl = process.env
+const baseUrl = "sdsds"
 
 export const getAllActorApi = `${baseUrl}/actor`
 

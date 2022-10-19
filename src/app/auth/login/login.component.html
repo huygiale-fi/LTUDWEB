@@ -8,17 +8,17 @@
         <img class="icon-web" src="https://img.icons8.com/nolan/64/B0B0B0/2E2E2E/benzene-ring.png"/>
     </div>
     <div class="card-login">
-        <form class="form-login">
+        <form (ngSubmit)="onSubmitLogin()" class="form-login">
             <mat-form-field class="input-login" appearance="fill">
                 <mat-label>User Name</mat-label>
-                <input matInput placeholder="Username" >
+                <input [(ngModel)]="userName" name="userName" matInput placeholder="Username" >
               </mat-form-field>
             
               <mat-form-field class="input-login" matInput="password" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput type="password" placeholder="Password">
+                <input [(ngModel)]="passWord" name="passWord" matInput type="password" placeholder="Password">
               </mat-form-field>
-              <button class="btn-login">Login</button>
+              <button type="submit" class="btn-login">Login</button>
         </form>
         
     </div>
