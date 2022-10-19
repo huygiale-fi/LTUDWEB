@@ -1,0 +1,75 @@
+.container{
+    height: 100vh;
+}
+
+.header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card-login{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.input-login{
+    width: 100%;
+}
+
+.btn-login{
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #a6b5b7;
+}
+
+.btn-signup{
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 2px solid #a6b5b7;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.icon{
+    margin-top:80px;
+    text-align: center;
+}
+
+.icon-web{
+    width: 100px;
+    height: 100px;
+}
+
+.mat-form-field-infix .mat-form-field-label-wrapper .mat-form-field-label{
+    color: #a6b5b7 !important;
+}
+
+.mat-input-element{
+    color: #a6b5b7 !important;
+}
+.mat-form-field-flex{
+    background-color: transparent !important;
+}
+.mat-form-field-underline{
+    color: #a6b5b7;
+}
+.mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: #a6b5b7 !important;
+}

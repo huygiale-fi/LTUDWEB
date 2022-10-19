@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Hi, Bro</h1>
+<div mat-dialog-content>
+  <p>Bro want more movies ?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Title film</mat-label>  
+    <input matInput [(ngModel)]="data.title">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description film</mat-label>  
+    <input matInput [(ngModel)]="data.description">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Rating film</mat-label>  
+    <input type="number" min="1" max="5" matInput [(ngModel)]="data.rating">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Release Year</mat-label>  
+    <input matInput [(ngModel)]="data.releaseYear">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Language</mat-label>  
+    <input matInput [(ngModel)]="data.languageId">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
