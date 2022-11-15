@@ -1,3 +1,12 @@
 table {
     width: 80%;
   }
+
+.huy{
+  overflow:hidden;
+}
+
+.animate__animated.animate__bounceInRight{
+  -o-animation-duration: 5s;
+}
+

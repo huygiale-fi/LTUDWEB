@@ -1,25 +1,27 @@
-<div class="container">
-    <div class="header">
-        <button class="btn-signup">
-            Sign Up
-        </button>
-    </div>
-    <div class="icon">
-        <img class="icon-web" src="https://img.icons8.com/nolan/64/B0B0B0/2E2E2E/benzene-ring.png"/>
-    </div>
-    <div class="card-login">
-        <form (ngSubmit)="onSubmitLogin()" class="form-login">
-            <mat-form-field class="input-login" appearance="fill">
-                <mat-label>User Name</mat-label>
-                <input [(ngModel)]="userName" name="userName" matInput placeholder="Username" >
-              </mat-form-field>
-            
-              <mat-form-field class="input-login" matInput="password" appearance="fill">
-                <mat-label>Password</mat-label>
-                <input [(ngModel)]="passWord" name="passWord" matInput type="password" placeholder="Password">
-              </mat-form-field>
-              <button type="submit" class="btn-login">Login</button>
-        </form>
-        
+<div style="padding: 10px; background: linear-gradient(120deg, rgba(35,51,55,1) 0%, rgba(64,116,119,1) 90%);">
+    <div class="container">
+        <div class="header">
+            <button (click)="navigateSignUp()" class="btn-signup">
+                Sign Up
+            </button>
+        </div>
+        <div class="icon">
+            <img class="icon-web" src="https://img.icons8.com/nolan/64/B0B0B0/2E2E2E/benzene-ring.png" />
+        </div>
+        <div class="card-login">
+            <form [formGroup]="formLogin" (ngSubmit)="onSubmitLogin()" class="form-login">
+                <mat-form-field class="input-login" appearance="fill">
+                    <mat-label>User Name</mat-label>
+                    <input formControlName="email" name="email" matInput placeholder="Email">
+                </mat-form-field>
+
+                <mat-form-field class="input-login" matInput="password" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" name="password" matInput type="password" placeholder="Password">
+                </mat-form-field>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+
+        </div>
     </div>
 </div>

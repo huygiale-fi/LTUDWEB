@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { filter } from 'rxjs';
+import { delay, filter, interval, mergeMap, Observable,switchMap,takeWhile, of, repeat, tap, timer } from 'rxjs';
 import { FilmService } from '../services/film.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AddFilmComponent } from '../add-film/add-film.component';
 import { FilmDto } from '../core/dto/filmDto';
+import { slideInAnimation } from '../animation';
 
 @Component({
   selector: 'app-list-film',
   templateUrl: './list-film.component.html',
-  styleUrls: ['./list-film.component.css']
+  styleUrls: ['./list-film.component.css'],
+  animations: [
+    slideInAnimation
+  ]
 })
 export class ListFilmComponent implements OnInit {
   dataSource = []
@@ -24,18 +28,36 @@ export class ListFilmComponent implements OnInit {
   ) { 
   }
 
-  displayedColumns: string[] = [ 'title', 'description', 'releaseYear','languageId'];
+  displayedColumns: string[] = [ 'title', 'lastUpdate', 'description', 'releaseYear','languageId'];
 
+  subscription:Observable<any>
   ngOnInit(): void {
-    
+    // this.onLoadFilm()
+    // this.subscription = timer(0,5000)
+    //   .pipe(
+    //     switchMap(() =>
+    //       this.filmService.getAllFilm()
+    //     ),
+    //     repeat(5)
+    //   )
+    // this.test()
+
+    // this.onLoadFilm()
   }
 
-  onLoadFilm(e:any){
-    this.filmService.getAllFilm().subscribe(res=>{
+  
+
+  onLoadFilm(){
+       this.filmService.getAllFilm().subscribe(res=>{
       console.log(res);
-      this.dataSource = res
-    })
+      this.dataSource = res 
+      })
   }
+
+  test(){
+   setInterval(()=>this.onLoadFilm(),5000)
+  }
+
 
   addFilm(e:any){
     const dialogRef = this.dialog.open(AddFilmComponent, {

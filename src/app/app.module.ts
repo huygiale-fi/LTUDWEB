@@ -11,11 +11,12 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilmService } from './services/film.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AuthComponent } from './register/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegisterComponent } from './auth/register/register.component';
     ListFilmComponent,
     AddFilmComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthComponent
   ],
   imports: [
     FormsModule,
@@ -36,6 +38,8 @@ import { RegisterComponent } from './auth/register/register.component';
     MatTableModule,
     MatButtonModule,
     MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [FilmService],
   bootstrap: [AppComponent]
