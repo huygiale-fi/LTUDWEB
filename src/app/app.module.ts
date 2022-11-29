@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthComponent } from './register/auth/auth.component';
+import { HeaderComponent } from './shared/common/header/header.component';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AuthComponent } from './register/auth/auth.component';
     AddFilmComponent,
     LoginComponent,
     RegisterComponent,
-    AuthComponent
+    AuthComponent,
+    HeaderComponent
   ],
   imports: [
     FormsModule,
@@ -39,7 +42,10 @@ import { AuthComponent } from './register/auth/auth.component';
     MatButtonModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RecaptchaFormsModule,
+    RecaptchaModule
+    
   ],
   providers: [FilmService],
   bootstrap: [AppComponent]
