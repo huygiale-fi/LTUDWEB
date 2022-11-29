@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ChildrenOutletContexts } from '@angular/router';
+import { ChildrenOutletContexts, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { slideInAnimation } from './animation';
+declare let gtag: Function;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,12 +13,27 @@ import { slideInAnimation } from './animation';
 })
 
 export class AppComponent {
-  constructor(private contexts: ChildrenOutletContexts){
-    
-  }
+  constructor(private contexts: ChildrenOutletContexts,
+    private router: Router) {
 
-  getRouteAnimationData(){
+  }
+  
+  ngOnInit() {
+    this.setUpAnalytics();
+  }
+  getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
   }
   title = 'LTHD-FE';
+
+  setUpAnalytics() {
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        gtag('config', 'G-CS300YPFLY',
+          {
+            page_path: event.urlAfterRedirects
+          }
+        );
+      });
+  }
 }
